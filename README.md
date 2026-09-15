@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ouro Preto Pneus — Site Institucional
 
-## Getting Started
+Site one-page institucional da Ouro Preto Pneus, construído com Next.js (App Router), TypeScript e Tailwind CSS.
 
-First, run the development server:
+> **Status:** Fase 1 — site público estático (sem Supabase/admin ainda). A Fase 2 vai conectar Supabase (Auth, Postgres, Storage) e o painel `/admin` para gerenciamento de conteúdo, produtos, promoções e imagens.
+
+## Stack
+
+- [Next.js](https://nextjs.org) 16 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- [lucide-react](https://lucide.dev) para ícones
+
+## Como rodar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev     # ambiente de desenvolvimento
+npm run lint    # ESLint
+npm run build   # build de produção
+npm run start   # servir o build de produção
+```
 
-## Learn More
+## Variáveis de ambiente
 
-To learn more about Next.js, take a look at the following resources:
+Copie `.env.example` para `.env.local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env.local
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `NEXT_PUBLIC_SITE_URL`: URL pública do site, usada em metadata/SEO (Open Graph, sitemap, robots).
 
-## Deploy on Vercel
+## Estrutura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/            App Router: layout, home, metadata, robots.ts, sitemap.ts
+  components/
+    layout/        Header, MobileMenu, Footer
+    sections/       Hero, Benefits, Products, About, WhatsappCta, Contact
+    ui/             Componentes reutilizáveis (cards, logo, placeholders SVG, botão flutuante)
+  lib/
+    site-content.ts  Conteúdo do site (textos, cards, dados da empresa) — fonte única de verdade
+    whatsapp.ts       Helper para montar links wa.me
+  types/           Tipos TypeScript do conteúdo
+public/
+  images/placeholders/  Reservado para uploads futuros (ver README da pasta)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Todo o conteúdo textual e os dados dos cards ficam centralizados em `src/lib/site-content.ts`. Isso foi proposital: na Fase 2, esse arquivo será substituído por chamadas ao Supabase (site_settings, products, categories, promotions) sem precisar alterar os componentes visuais.
+
+As imagens ainda não existem — hero, produtos e seção institucional usam placeholders SVG neutros na paleta da marca (`TireGraphic`, `HeroVisual`, `AboutVisual`), sem nenhum texto embutido na imagem, prontos para serem substituídos por fotos reais mais adiante.
+
+## Próxima fase (não incluída ainda)
+
+- Supabase (Auth, Postgres, Storage) e migrations SQL.
+- Painel administrativo em `/admin` (produtos, categorias, promoções, mídia, SEO, usuários).
+- Upload de imagens reais (logo, hero, produtos, institucional) via Supabase Storage.
+
+## Deploy
+
+Projeto pronto para GitHub + [Vercel](https://vercel.com). Configure `NEXT_PUBLIC_SITE_URL` nas variáveis de ambiente do projeto na Vercel antes do deploy.
