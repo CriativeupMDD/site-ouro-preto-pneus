@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsapp } from "@/components/ui/FloatingWhatsapp";
-import { company } from "@/lib/site-content";
+import { company, getSiteUrl } from "@/lib/site-content";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,7 +11,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? company.siteUrl;
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

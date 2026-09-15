@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-import { company } from "@/lib/site-content";
+import { getSiteUrl } from "@/lib/site-content";
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? company.siteUrl;
+  const siteUrl = getSiteUrl();
 
   return {
     rules: {

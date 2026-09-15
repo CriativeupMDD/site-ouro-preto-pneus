@@ -7,6 +7,14 @@ import type { Benefit, CompanyInfo, NavLink, ProductCategoryCard, StatItem } fro
  * a troca não deve exigir mudanças nas sections/components.
  */
 
+/**
+ * `||` (não `??`) de propósito: na Vercel a env var pode existir mas vazia
+ * (""), o que faria `new URL("")` quebrar o build em layout/robots/sitemap.
+ */
+export function getSiteUrl(): string {
+  return process.env.NEXT_PUBLIC_SITE_URL || company.siteUrl;
+}
+
 export const company: CompanyInfo = {
   name: "Ouro Preto Pneus",
   shortDescription: "Segurança, qualidade e confiança para o seu veículo.",
