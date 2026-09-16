@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { HeroVisual } from "@/components/ui/HeroVisual";
+import { HeroPhoto } from "@/components/ui/HeroPhoto";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { hero } from "@/lib/site-content";
 import { buildWhatsappLink } from "@/lib/whatsapp";
@@ -45,7 +45,7 @@ export function Hero() {
         </RevealOnScroll>
 
         <RevealOnScroll delay={150}>
-          <HeroVisual />
+          <HeroPhoto />
         </RevealOnScroll>
       </div>
     </section>

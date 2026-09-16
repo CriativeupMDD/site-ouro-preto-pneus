@@ -52,6 +52,8 @@ export const hero = {
   secondaryCta: "Ver produtos",
   sideLabelTop: "Qualidade move você mais longe",
   sideLabelBottom: "Pneus é mais segurança para o seu caminho",
+  image: "/images/hero/hero-pneus.jpg",
+  imageAlt: "Roda e pneus em destaque em oficina automotiva ao entardecer, com SUV ao fundo",
 };
 
 export const benefits: Benefit[] = [
