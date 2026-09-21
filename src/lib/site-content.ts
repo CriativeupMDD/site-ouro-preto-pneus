@@ -97,6 +97,8 @@ export const productCards: ProductCategoryCard[] = [
     description: "Conforto e segurança no seu dia a dia.",
     href: "#produtos",
     visual: "passeio",
+    image: "/images/products/pneus-passeio.png",
+    imageAlt: "Pneus de passeio empilhados em oficina",
   },
   {
     id: "suv",
@@ -104,6 +106,8 @@ export const productCards: ProductCategoryCard[] = [
     description: "Mais estabilidade para grandes trajetos.",
     href: "#produtos",
     visual: "suv",
+    image: "/images/products/pneus-suv.png",
+    imageAlt: "Pneus para SUV com banda de rodagem robusta em oficina",
   },
   {
     id: "utilitarios",
@@ -111,6 +115,8 @@ export const productCards: ProductCategoryCard[] = [
     description: "Resistência e desempenho para o seu trabalho.",
     href: "#produtos",
     visual: "utilitario",
+    image: "/images/products/pneus-utilitarios.png",
+    imageAlt: "Pneus para utilitários em oficina, com van ao fundo",
   },
   {
     id: "promocoes",
@@ -119,6 +125,8 @@ export const productCards: ProductCategoryCard[] = [
     href: "#promocoes",
     visual: "promocao",
     badge: "%",
+    image: "/images/products/promocao-semana.png",
+    imageAlt: "Pneu com etiqueta de desconto em promoção",
   },
 ];
 

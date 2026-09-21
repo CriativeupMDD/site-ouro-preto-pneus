@@ -40,6 +40,8 @@ export interface ProductCategoryCard {
   description: string;
   href: string;
   visual: ProductVisualVariant;
+  image?: string;
+  imageAlt?: string;
   badge?: string;
 }
 
