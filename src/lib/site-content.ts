@@ -129,6 +129,8 @@ export const about = {
     "Somos uma empresa comprometida com a sua segurança e satisfação. Trabalhamos com pneus das melhores marcas, oferecendo atendimento especializado e uma grande variedade de produtos para carros, SUVs e utilitários.",
   cta: "Conheça nossa loja",
   tagline: "Sempre com você na estrada",
+  image: "/images/about/about-oficina.png",
+  imageAlt: "Técnico da Ouro Preto Pneus fazendo manutenção em pneu de caminhão na oficina",
 };
 
 export const stats: StatItem[] = [

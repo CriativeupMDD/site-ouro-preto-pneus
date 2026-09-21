@@ -1,21 +1,21 @@
-import { TireGraphic } from "@/components/ui/TireGraphic";
+import Image from "next/image";
+import { about } from "@/lib/site-content";
 
+/**
+ * Foto real da seção institucional (config `about_image`). A etiqueta
+ * "Sempre com você na estrada" já faz parte da própria foto enviada —
+ * por isso não duplicamos esse texto em HTML por cima aqui.
+ */
 export function AboutVisual() {
   return (
-    <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-3xl bg-brand-black sm:aspect-[16/11] lg:aspect-[4/5]">
-      <div
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 20%, rgba(245,184,0,0.18), transparent 55%)",
-        }}
-        aria-hidden
+    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-brand-gray shadow-2xl shadow-black/40">
+      <Image
+        src={about.image}
+        alt={about.imageAlt}
+        fill
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="object-cover"
       />
-      <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full border-8 border-brand-gray opacity-40" aria-hidden />
-      <TireGraphic className="relative w-40 sm:w-52 lg:w-56" tone="dark" />
-      <span className="absolute bottom-5 left-5 rounded-full bg-brand-yellow px-3 py-1 text-[11px] font-bold tracking-wide text-brand-black">
-        Sempre com você na estrada
-      </span>
     </div>
   );
 }
