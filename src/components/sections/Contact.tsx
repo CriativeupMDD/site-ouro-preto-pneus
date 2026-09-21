@@ -1,7 +1,7 @@
-import { Clock, Globe, MapPin, MessageCircle } from "lucide-react";
+import { Clock, Globe, MapPin, MessageCircle, Navigation } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
-import { company } from "@/lib/site-content";
+import { buildDirectionsLink, company } from "@/lib/site-content";
 import { buildWhatsappLink } from "@/lib/whatsapp";
 
 const fullAddress = `${company.address.street} - ${company.address.neighborhood}, ${company.address.city}/${company.address.state}`;
@@ -91,21 +91,32 @@ export function Contact() {
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll delay={150} className="min-h-[320px] overflow-hidden rounded-2xl border border-brand-gray">
-            {company.googleMapsEmbed ? (
-              <iframe
-                src={company.googleMapsEmbed}
-                title="Localização Ouro Preto Pneus"
-                className="h-full min-h-[320px] w-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            ) : (
-              <div className="flex h-full min-h-[320px] flex-col items-center justify-center gap-3 bg-brand-black p-8 text-center">
-                <MapPin size={32} className="text-brand-yellow" />
-                <p className="max-w-xs text-sm text-brand-muted">{fullAddress}</p>
-              </div>
-            )}
+          <RevealOnScroll delay={150} className="flex flex-col gap-4">
+            <div className="min-h-[320px] overflow-hidden rounded-2xl border border-brand-gray">
+              {company.googleMapsEmbed ? (
+                <iframe
+                  src={company.googleMapsEmbed}
+                  title="Localização Ouro Preto Pneus"
+                  className="h-full min-h-[320px] w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              ) : (
+                <div className="flex h-full min-h-[320px] flex-col items-center justify-center gap-3 bg-brand-black p-8 text-center">
+                  <MapPin size={32} className="text-brand-yellow" />
+                  <p className="max-w-xs text-sm text-brand-muted">{fullAddress}</p>
+                </div>
+              )}
+            </div>
+            <a
+              href={buildDirectionsLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 py-3.5 text-sm font-bold text-brand-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-yellow-light"
+            >
+              <Navigation size={16} strokeWidth={2.5} />
+              Como chegar
+            </a>
           </RevealOnScroll>
         </div>
       </div>

@@ -35,6 +35,11 @@ export const company: CompanyInfo = {
   googleMapsEmbed: "",
 };
 
+export function buildDirectionsLink(): string {
+  const destination = `${company.address.street}, ${company.address.neighborhood}, ${company.address.city}, ${company.address.state}`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+}
+
 export const navLinks: NavLink[] = [
   { label: "Início", href: "#inicio" },
   { label: "Pneus", href: "#produtos" },
